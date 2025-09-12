@@ -50,7 +50,7 @@ res.status(201).json({
 const deleteBarbie = (req,res) => {
     let id = parseInt(req.params.id);
 
-    const barbieParaRemover = barbie.find(b => b.id === id);
+    const barbieParaRemover = barbies.find(b => b.id === id);
 
     if (!barbieParaRemover) {
         return res.status(404).json({
@@ -60,7 +60,7 @@ const deleteBarbie = (req,res) => {
     }
     const barbiesFiltradas = barbies.filter(barbie => barbie.id != id);
     
-    barbie.splice(0, barbies.length, ...barbiesFiltradas)
+    barbies.splice(0, barbies.length, ...barbiesFiltradas)
     res.status(200).json({
         sucess: true,
         message: "A Barbie foi removida com sucesso",
